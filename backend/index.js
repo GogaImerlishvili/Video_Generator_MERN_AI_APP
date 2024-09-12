@@ -7,7 +7,7 @@ app.get("/test", (req, res) => {
     return res.json("test ok1")
 })
 
-app.get("create-story", (req, res) => {
+app.get("/create-story", (req, res) => {
     const url = req.query.url
     console.log({url})
     return res.json("ok")
