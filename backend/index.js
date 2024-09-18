@@ -1,5 +1,6 @@
 import express from "express"
-
+import uniqid from "uniqid"
+import fs from "fs"
 
 const app = express();
 
@@ -9,7 +10,10 @@ app.get("/test", (req, res) => {
 
 app.get("/create-story", (req, res) => {
     const url = req.query.url
-    console.log({url})
+    const dir = uniqid()
+    const path = "./stories/" + dir
+    fs.mkdirSync(path,{recursive:true})
+    console.log({ url })
     return res.json("ok")
 })
 
